@@ -221,7 +221,7 @@ bool menu::show_lower_menu(){
 						do{
 						cout<<"Podaj rok: ";cin>>y;
 						}while(y<1918);
-						dane.del(this->dane.find_by_int(y,1,0));
+						dane.del(this->dane.find_by_int(y,3,0));
 						break;
 					}
 					case 6:{
