@@ -20,8 +20,8 @@ class pliki{
 		pliki(string);
 		bool otworz();
 		bool zamknij();
-		void zapisz(vector<dane>&);
-		void wczytaj(vector<dane>&);	
+		void zapisz(vector<dane>);
+		vector<dane> wczytaj();	
 };
 
 

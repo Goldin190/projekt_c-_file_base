@@ -1,7 +1,7 @@
 #include "pliki.hpp"
 
-pliki::pliki(string nazwa){
-	this->plik_nazwa = nazwa;
+pliki::pliki(string name){
+	this->plik_nazwa = name;
 }
 
 bool pliki::otworz(){
@@ -18,13 +18,16 @@ bool pliki::zamknij(){
 	this->plik.close();
 }
 
-void pliki::zapisz(vector<dane>&buffor){
+void pliki::zapisz(vector<dane>buffor){
+	this->plik.open(this->plik_nazwa.c_str(), ios::in | ios::out | ios::trunc );
 	for(size_t i = 0;i<buffor.size();i++){
 		this->plik<<buffor[i].imie<<endl<<buffor[i].nazwisko<<endl<<buffor[i].data.day<<endl<<buffor[i].data.month<<endl<<buffor[i].data.year<<endl;
 	}
+	this->zamknij();
 }
 
-void pliki::wczytaj(vector<dane>& buffor){
+vector<dane> pliki::wczytaj(){
+	vector<dane> buffor;
 	string rekord;
 	string imie,nazwisko;
 	int day,month,year;
@@ -42,6 +45,8 @@ void pliki::wczytaj(vector<dane>& buffor){
 			buffor.push_back({imie,nazwisko,day,month,year});
 		}
 	}
+
 	buffor.pop_back();
+	return buffor;
 }
 

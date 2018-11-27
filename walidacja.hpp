@@ -2,13 +2,21 @@
 #define WALIDACJA_HPP	
 
 #include <iostream>
+#include <string>
+#include <time.h>
+#include <cstring>
 
 using namespace std;
 
 class walidowanie{
+	private:
+	time_t czas;
+    struct tm * data;
 	public:
 		bool check_in(bool);
-		walidowanie();
+		bool check_date(int,int,int);
+		bool check_string(string);
+		bool czy_przestepny(int);
 };
 
 /* TODO (Maciej#2#): walidacja cin */
